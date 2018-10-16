@@ -37,7 +37,7 @@
 
   @include e(arrow) {
     font-size: 12px;
-    color: $--color-text-secondary;
+    color: $--color-text-regular;
     position: absolute;
     left: 0;
     width: 100%;
@@ -51,11 +51,11 @@
       color: $--color-primary;
     }
 
-    &.el-icon-arrow-up {
+    &.siagri-icon-arrow-up {
       top: 10px;
     }
 
-    &.el-icon-arrow-down {
+    &.siagri-icon-arrow-down {
       bottom: 10px;
     }
   }
@@ -87,9 +87,9 @@
   }
 
   @include e(item) {
-    height: 32px;
-    line-height: 32px;
-    font-size: 12px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 14px;
     color: $--color-text-regular;
 
     &:hover:not(.disabled):not(.active) {

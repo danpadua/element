@@ -2,6 +2,8 @@
 @import "common/var";
 
 @include b(tooltip) {
+  margin-left:5px; // Margin entre o elemento esquerdo e o tooltip
+
   &:focus:not(.focusing), &:focus:hover {
     outline-width: 0;
   }
@@ -103,34 +105,36 @@
     }
 
     @include when(dark) {
+      box-shadow:$--tooltip-box-shadow;
       background: $--tooltip-fill;
       color: $--tooltip-color;
     }
 
     @include when(light) {
+      box-shadow:$--tooltip-box-shadow;
       background: $--tooltip-color;
-      border: 1px solid $--tooltip-fill;
+      border: 1px solid $--tooltip-color;
 
       &[x-placement^="top"] .popper__arrow {
-        border-top-color: $--tooltip-fill;
+        border-top-color: $--tooltip-color;
         &::after {
           border-top-color: $--tooltip-color;
         }
       }
       &[x-placement^="bottom"] .popper__arrow {
-        border-bottom-color: $--tooltip-fill;
+        border-bottom-color: $--tooltip-color;
         &::after {
           border-bottom-color: $--tooltip-color;
         }
       }
       &[x-placement^="left"] .popper__arrow {
-        border-left-color: $--tooltip-fill;
+        border-left-color: $--tooltip-color;
         &::after {
           border-left-color: $--tooltip-color;
         }
       }
       &[x-placement^="right"] .popper__arrow {
-        border-right-color: $--tooltip-fill;
+        border-right-color: $--tooltip-color;
         &::after {
           border-right-color: $--tooltip-color;
         }

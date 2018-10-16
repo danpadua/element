@@ -1,2 +1,60 @@
-@import "common/transition.scss";
+@import "mixins/mixins";
+@import "common/var";
+
+// @import "~bootstrap/scss/bootstrap-reboot";
+/* @import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins"; */
+
+@import "reset";
 @import "icon.scss";
+@import "iconList.scss";
+
+
+@import "bootstrap/variables";
+@import "bootstrap/breakpoints";
+@import "bootstrap/grid-framework";
+@import "bootstrap/grid";
+
+@each $key, $value in $siagriIcons {
+  .siagri-icon-#{$key} {
+    &:before {
+      content: $value;
+    }
+  }
+}
+
+@if $--enable-grid-classes {
+  .el-container {
+    @include make-container();
+    @include make-container-max-widths();
+  }
+}
+
+@if $--enable-grid-classes {
+  .el-container-fluid {
+    @include make-container();
+  }
+}
+
+@if $--enable-grid-classes {
+  .el-row,
+  .el-row-fluid {
+    @include make-row();
+  }
+
+  .no-gutters {
+    margin-right: 0;
+    margin-left: 0;
+
+    > .el-col,
+    > [class*="el-col-"] {
+      padding-right: 0;
+      padding-left: 0;
+    }
+  }
+}
+
+@if $--enable-grid-classes {
+  @include make-grid-columns();
+}

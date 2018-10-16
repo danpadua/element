@@ -47,8 +47,10 @@ const loadDocs = function(lang, path) {
 
 const registerRoute = (navConfig) => {
   let route = [];
+
   Object.keys(navConfig).forEach((lang, index) => {
     let navs = navConfig[lang];
+
     route.push({
       path: `/${ lang }/component`,
       redirect: `/${ lang }/component/installation`,
@@ -137,7 +139,7 @@ langs.forEach(lang => {
 route.push({
   path: '/play',
   name: 'play',
-  component: require('./play/index.vue').default
+  component: require('./play/teste.vue').default
 });
 
 let userLanguage = localStorage.getItem('ELEMENT_LANGUAGE') || window.navigator.language || 'en-US';

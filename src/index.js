@@ -69,6 +69,12 @@ import Header from '../packages/header/index.js';
 import Aside from '../packages/aside/index.js';
 import Main from '../packages/main/index.js';
 import Footer from '../packages/footer/index.js';
+import Slideout from '../packages/slideout/index.js';
+import Sidebar from '../packages/sidebar/index.js';
+import SidebarGroup from '../packages/sidebar-group/index.js';
+import SidebarItem from '../packages/sidebar-item/index.js';
+import Drawer from '../packages/drawer/index.js';
+import Divider from '../packages/divider/index.js';
 import locale from 'element-ui/src/locale';
 import CollapseTransition from 'element-ui/src/transitions/collapse-transition';
 
@@ -138,10 +144,16 @@ const components = [
   Aside,
   Main,
   Footer,
+  Slideout,
+  Sidebar,
+  SidebarGroup,
+  SidebarItem,
+  Drawer,
+  Divider,
   CollapseTransition
 ];
 
-const install = function(Vue, opts = {}) {
+const install = (Vue, opts = {}) => {
   locale.use(opts.locale);
   locale.i18n(opts.i18n);
 
@@ -171,7 +183,7 @@ if (typeof window !== 'undefined' && window.Vue) {
   install(window.Vue);
 }
 
-module.exports = {
+const ElementUi = {
   version: '2.4.7',
   locale: locale.use,
   i18n: locale.i18n,
@@ -245,7 +257,13 @@ module.exports = {
   Header,
   Aside,
   Main,
-  Footer
+  Footer,
+  Slideout,
+  Sidebar,
+  SidebarGroup,
+  SidebarItem,
+  Drawer,
+  Divider
 };
 
-module.exports.default = module.exports;
+export default ElementUi;

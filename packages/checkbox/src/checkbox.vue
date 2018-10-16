@@ -58,6 +58,7 @@
   import Emitter from 'element-ui/src/mixins/emitter';
 
   export default {
+
     name: 'ElCheckbox',
 
     mixins: [Emitter],

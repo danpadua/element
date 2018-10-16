@@ -7,7 +7,7 @@
   white-space: nowrap;
   padding: 2px 5px;
   color: $--pagination-color;
-  font-weight: bold;
+  font-weight: regular;
   @include utils-clearfix;
 
   span:not([class*=suffix]),
@@ -53,7 +53,9 @@
     }
 
     &:hover {
-      color: $--pagination-hover-fill;
+      background-color: $--pagination-hover-fill;
+      color: $--pagination-hover-text;
+
     }
 
     &:disabled {
@@ -67,14 +69,16 @@
   .btn-next {
     background: center center no-repeat;
     background-size: 16px;
-    background-color: $--pagination-fill;
+    font-weight:bold;
+    background-color: transparent;
     cursor: pointer;
     margin: 0;
     color: $--pagination-button-color;
+    padding-top:10px;
 
-    .el-icon {
+    .siagri-icon {
       display: block;
-      font-size: 12px;
+      font-size: 14px;
       font-weight: bold;
     }
   }
@@ -88,7 +92,7 @@
   }
 
   .el-pager li.disabled {
-    color: $--color-text-placeholder;
+    color: $--color-disabled-primary;
     cursor: not-allowed;
   }
 
@@ -194,13 +198,13 @@
     .btn-next,
     .el-pager li {
       margin: 0 5px;
-      background-color: $--color-info-lighter;
-      color: $--color-text-regular;
-      min-width: 30px;
-      border-radius: 2px;
+      background-color: transparent;
+      color: $--color-primary;
+      min-width: 37px;
+      border-radius: 20px;
 
       &.disabled {
-        color: $--color-text-placeholder;
+        color: $--color-disabled-primary;
       }
     }
 
@@ -208,18 +212,19 @@
       padding: 0;
 
       &:disabled {
-        color: $--color-text-placeholder;
+        color: $--color-disabled-primary;
       }
     }
 
     .el-pager li:not(.disabled) {
       &:hover {
-        color: $--pagination-hover-fill;
+        background-color: $--pagination-hover-fill-disabled;
+        color: $--pagination-hover-color;
       }
 
       &.active {
         background-color: $--color-primary;
-        color: $--color-white;
+        color: $--pagination-hover-text;
       }
     }
 
@@ -244,12 +249,12 @@
   margin: 0;
 
   .more::before {
-    line-height: 30px;
+    line-height: 35px;
   }
 
   li {
     padding: 0 4px;
-    background: $--pagination-fill;
+    background: transparent;
     vertical-align: top;
     display: inline-block;
     font-size: $--pagination-font-size;
@@ -260,6 +265,7 @@
     box-sizing: border-box;
     text-align: center;
     margin: 0;
+    line-height:36px;
 
     &.btn-quicknext,
     &.btn-quickprev {
@@ -285,10 +291,15 @@
 
     &:hover {
       color: $--pagination-hover-fill;
+      height:36px;
     }
 
     &.active {
-      color: $--pagination-hover-fill;
+      color: $--pagination-active-color;
+      background-color: $--pagination-hover-fill;
+      height:36px;
+      min-width: 36px;
+      border-radius: $--border-radius-circle;
       cursor: default;
     }
   }
