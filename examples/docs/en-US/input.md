@@ -24,7 +24,9 @@
         state1: '',
         state2: '',
         state3: '',
-        state4: ''
+        state4: '',
+        input_hover: false,
+        input_focus: false,
       };
     },
     methods: {
@@ -152,13 +154,27 @@ Input data using mouse or keyboard.
 :::demo
 
 ```html
-<el-input placeholder="Please input" v-model="input"></el-input>
+<div class="demo-input-suffix">
+  <span
+    class="demo-input-label" 
+    :class="{ 'on-focus': input_focus, 'on-hover': input_hover && ! input_focus }">Label demo</span>
+
+  <el-input
+    @focus="input_focus = true"
+    @blur="input_focus = false"
+    @hover="input_hover = $event"
+    placeholder="Please input"
+    v-model="input">
+  </el-input>
+</div>
 
 <script>
 export default {
   data() {
     return {
-      input: ''
+      input: '',
+      input_hover: false,
+      input_focus: false,
     }
   }
 }

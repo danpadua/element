@@ -11,8 +11,8 @@
       'el-input--suffix': $slots.suffix || suffixIcon || clearable
     }
     ]"
-    @mouseenter="hovering = true"
-    @mouseleave="hovering = false"
+    @mouseenter="setHovering(true)"
+    @mouseleave="setHovering(false)"
   >
     <template v-if="type !== 'textarea'">
       <!-- 前置元素 -->
@@ -218,6 +218,12 @@
     },
 
     methods: {
+      setHovering(flag) {
+        this.hovering = flag;
+
+        this.$emit('hover', flag);
+      },
+
       focus() {
         (this.$refs.input || this.$refs.textarea).focus();
       },
