@@ -11,7 +11,7 @@
   margin: 5px 0;
 
   @include when(multiple) {
-    & .el-select-dropdown__item.selected {
+    & .el-select-dropdown__item.selected:not(.checkbox) {
       color: $--select-option-selected;
       background-color: $--select-option-selected-background;
 

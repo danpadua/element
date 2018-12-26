@@ -253,6 +253,12 @@
       value: {
         required: true
       },
+
+      checkbox: {
+        type: Boolean,
+        default: false,
+      },
+
       autocomplete: {
         type: String,
         default: 'off'

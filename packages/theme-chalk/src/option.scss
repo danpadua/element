@@ -14,7 +14,10 @@
     line-height: $--select-option-height;
     letter-spacing: 0.3px;
     box-sizing: border-box;
-    cursor: pointer;
+
+    &:not(.checkbox) {
+      cursor: pointer;
+    }
 
     @include when(disabled) {
       color: $--select-option-disabled-color;
@@ -26,12 +29,25 @@
       }
     }
 
-    &.hover, &:hover {
-      color: $--color-white;
-      background-color: $--select-option-hover-background;
+    @include b(checkbox) {
+      margin-right: 8px;
     }
 
-    &.selected {
+    &.hover,
+    &:hover {
+      color: $--color-white;
+      background-color: $--select-option-hover-background;
+
+      .el-checkbox__inner {
+        background-color: $--color-white !important;
+
+        &::after {
+          border-color: $--color-primary;
+        }
+      }
+    }
+
+    &.selected:not(.checkbox) {
       color: $--select-option-selected;
       background-color: $--color-primary;
       font-weight: 400;

@@ -7,8 +7,18 @@
     :class="{
       'selected': itemSelected,
       'is-disabled': disabled || groupDisabled || limitReached,
-      'hover': hover
+      'hover': hover,
+      'checkbox': checkbox,
     }">
+
+    <el-checkbox
+      @click.stop
+      v-if="checkbox"
+      :disabled="disabled || groupDisabled || limitReached"
+      :value="itemSelected"
+      @input="selectOptionClick">
+    </el-checkbox>
+
     <slot>
       <span>{{ currentLabel }}</span>
     </slot>
@@ -64,11 +74,15 @@
       },
 
       itemSelected() {
-        if (!this.select.multiple) {
+        if (! this.select.multiple) {
           return this.isEqual(this.value, this.select.value);
-        } else {
-          return this.contains(this.select.value, this.value);
         }
+
+        return this.contains(this.select.value, this.value);
+      },
+
+      checkbox () {
+        return !! this.select.checkbox;
       },
 
       limitReached() {
@@ -76,9 +90,9 @@
           return !this.itemSelected &&
             (this.select.value || []).length >= this.select.multipleLimit &&
             this.select.multipleLimit > 0;
-        } else {
-          return false;
         }
+
+        return false;
       }
     },
 
